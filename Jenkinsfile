@@ -41,7 +41,7 @@ withCredentials( [usernamePassword( credentialsId: 'kishortest', usernameVariabl
 }
 
 
-} node close
+} //node close
 
 
 def Properties getProperties(filename) {
