@@ -7,6 +7,7 @@ stage ('Checkout'){
     checkout scm
 }
  
+/*	
 if (env.BRANCH_NAME == 'master')
 {
 
@@ -38,12 +39,12 @@ withCredentials( [usernamePassword( credentialsId: 'kishortest', usernameVariabl
     sshCommand remote: remote, command: "docker-compose -f $webPath/docker-compose.yml down; sleep 5; docker-compose -f $webPath/docker-compose.yml up -d ; docker ps"
   }
 }*/
-}
+//}
 
 
 } //node close
 
-
+/*
 def Properties getProperties(filename) {
     def properties = new Properties()
     properties.load(new StringReader(readFile(filename)))
