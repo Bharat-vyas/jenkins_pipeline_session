@@ -7,7 +7,7 @@ stage ('Checkout'){
     checkout scm
 }
  
-if (env.BRANCH_NAME == 'release')
+if (env.BRANCH_NAME == 'master')
 {
 
     stage ('Build Web Image')
