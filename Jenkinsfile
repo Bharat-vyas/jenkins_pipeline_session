@@ -11,5 +11,6 @@ node {
     stage('Push image to dockerhub'){
     withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21'){
             sh 'docker push bharatvyas/jenkins_demo:${env.BUILD_ID}'
+      }
     }
 }
