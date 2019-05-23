@@ -2,42 +2,24 @@ node {
 
 // Defining Variables
 def webPath = '/home/docker/DrinkSavvy/web/portal'
-def dockerRegistry='dockerregistry.ecosmob.net:5000'
 
-	stage ('Checkout'){
-	    checkout scm
-    	}
-
-
-
-
- if (env.BRANCH_NAME == 'release')
+stage ('Checkout'){
+    checkout scm
+}
+ 
+if (env.BRANCH_NAME == 'release')
 {
-withCredentials( [usernamePassword( credentialsId: 'kishortest', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
-{
-  def remote = [:]
-  remote.name = 'digitalocean'
-  remote.host = '206.189.132.253'
-  remote.user = "${USERNAME}"
-  remote.password = "${PASSWORD}"
-  remote.allowAnyHosts = true
-/*  stage('DB deployment') 
-  {
-   sshPut remote: remote, from: './docker/db/docker-compose.yml', into: "${dbPath}"
-   sshCommand remote: remote, command: "mkdir -p $dbPath ; docker-compose -f $dbPath/docker-compose.yml down; sleep 5 ; docker-compose -f $dbPath/docker-compose.yml up -d ; docker ps "
-  }
-*/
+
     stage ('Build Web Image')
     {
-    sh "docker build -t ${dockerRegistry}/drinksavvy-portal:v1 -f docker/web/Dockerfile ."
+    sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile ."
     }
-  
-    stage ('Docker Push Web Image')
-    {
-    sh "docker login -u=ecosmob -p=$PASSWORD ${dockerRegistry} ; docker push ${dockerRegistry}/drinksavvy-portal:v1 ;docker logout ${dockerRegistry}"
-    } 
-}
 
+     stage('Push image to dockerhub'){
+	withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21'){
+	sh 'docker push bharatvyas/jenkins_demo'
+     }
+/*
 withCredentials( [usernamePassword( credentialsId: 'kishortest', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
 {
   def remote = [:]
@@ -55,7 +37,7 @@ withCredentials( [usernamePassword( credentialsId: 'kishortest', usernameVariabl
     sshPut remote: remote, from: './docker/web/docker-compose.yml', into: "${webPath}"
     sshCommand remote: remote, command: "docker-compose -f $webPath/docker-compose.yml down; sleep 5; docker-compose -f $webPath/docker-compose.yml up -d ; docker ps"
   }
-}
+}*/
 }
 
 
