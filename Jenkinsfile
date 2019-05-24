@@ -13,4 +13,22 @@ node {
        sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
       }
     }
+      if (env.BRANCH_NAME == 'master')
+{
+// 
+withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishortest_localserver', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])
+{ 
+  def remote = [:]
+  remote.name = 'VM'
+  remote.host = '172.16.16.70'
+  remote.user = "${USERNAME}"
+  remote.password = "${PASSWORD}"
+  remote.allowAnyHosts = true
+
+      stage('DB deployment') 
+      {
+            sh "docker ps -a"
+      }
 }
+      
+} //node
