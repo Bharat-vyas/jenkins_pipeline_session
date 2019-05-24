@@ -27,7 +27,11 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
 
       stage('docker ps') 
       {
-            sh "docker ps -a"
+                  withDockerRegistry(credentialsId: 'dockerhub') 
+                  {
+                  sh "docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}"
+                  sh "docker logout"
+                  }     
       }
 }
 } //if condition end
