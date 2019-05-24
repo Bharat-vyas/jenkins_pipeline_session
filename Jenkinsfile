@@ -29,8 +29,9 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       {
                   withDockerRegistry(credentialsId: 'dockerhub') 
                   {
-                  sh "docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}"
-                  sh "docker logout"
+                        sh "hostname"
+                  //sh "docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}"
+                  //sh "docker logout"
                   }     
       }
 }
