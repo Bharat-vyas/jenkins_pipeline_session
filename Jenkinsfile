@@ -25,10 +25,11 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
   remote.password = "${PASSWORD}"
   remote.allowAnyHosts = true
 
-      stage('DB deployment') 
+      stage('docker ps') 
       {
             sh "docker ps -a"
       }
 }
+} //if condition end
       
-} //node
+} //node end
