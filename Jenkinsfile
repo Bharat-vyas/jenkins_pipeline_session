@@ -1,6 +1,7 @@
 node {
       stage('Scm Checkout'){
-      git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
+            checkout scm
+      //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
       
     stage ('Build Web Image')
@@ -29,7 +30,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       {
                   withDockerRegistry(credentialsId: 'dockerhub') 
                   {
-                        sshCommand remote: remote, command: "hostname ; docker pull bharatvyas/jenkins_demo:${env.BUILD_ID} ; docker images"
+                        //sshCommand remote: remote, command: "hostname ; docker pull bharatvyas/jenkins_demo:${env.BUILD_ID} ; docker images"
                   //sh "docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}"
                   //sh "docker logout"
                   }     
