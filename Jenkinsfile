@@ -29,7 +29,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       {
                   withDockerRegistry(credentialsId: 'dockerhub') 
                   {
-                        sshCommand remote: remote, command: "hostname ; docker login ; docker pull bharatvyas/jenkins_demo:${env.BUILD_ID} ; docker images"
+                        sshCommand remote: remote, command: "hostname ; docker pull bharatvyas/jenkins_demo:${env.BUILD_ID} ; docker images"
                   //sh "docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}"
                   //sh "docker logout"
                   }     
