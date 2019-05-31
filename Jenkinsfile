@@ -20,11 +20,18 @@ node {
       //NEW
       
       
+
+      
       withCredentials([sshUserPrivateKey(credentialsId: 'DrinkSavvy_AWS_TEST', keyFileVariable: 'KEY', passphraseVariable: '', usernameVariable: 'USERNAME')]) 
       {
-            remote.user = USERNAME
-            remote.identityFile = KEY
-                  stage("SSH Steps Rocks!") {
+      def remote = [:]
+      remote.name = "VM"
+      remote.host = "18.204.226.26"
+      remote.user = USERNAME
+      remote.identityFile = KEY
+      remote.allowAnyHosts = true
+                  stage("SSH Steps Rocks!") 
+                  {
                   sshCommand remote: remote, command: "hostname"
                   }
       }
