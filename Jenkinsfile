@@ -36,7 +36,13 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                         //sh "docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}"
                   }     
       }
-}
+}     
+} //if condition end
+ 
+      
+      
+      
+      
       
       //NEW
       withCredentials([sshUserPrivateKey(credentialsId: 'DrinkSavvy_AWS_TEST', keyFileVariable: 'KEY', passphraseVariable: '', usernameVariable: 'USERNAME')]) 
@@ -55,6 +61,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       
       //NEW
       
-} //if condition end
+      
+      
       
 } //node end
