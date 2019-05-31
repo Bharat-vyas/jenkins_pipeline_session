@@ -13,7 +13,26 @@ node {
        sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
       }
     }
-   sshagent(['DrinkSavvy_AWS_TEST']) {
-    sh "hostname"
-    }  
-}
+   
+      
+   
+      
+      //NEW
+      
+      
+      withCredentials([sshUserPrivateKey(credentialsId: 'DrinkSavvy_AWS_TEST', keyFileVariable: 'KEY', passphraseVariable: '', usernameVariable: 'USERNAME')]) 
+      {
+            remote.user = USERNAME
+            remote.identityFile = KEY
+                  stage("SSH Steps Rocks!") {
+                  sshCommand remote: remote, command: "hostname"
+                  }
+      }
+      
+      
+      
+      
+      
+      
+      
+}//node close
