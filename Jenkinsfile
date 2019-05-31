@@ -32,7 +32,8 @@ node {
       remote.allowAnyHosts = true
                   stage("SSH Steps Rocks!") 
                   {
-                  sshCommand remote: remote, command: "hostname"
+                  sshCommand remote: remote, command: "sudo su" ; "hostname" ; "docker ps"
+                  sshPut remote: remote, from: 'test', into: '/home/'
                   }
       }
       
