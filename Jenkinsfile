@@ -13,4 +13,7 @@ node {
        sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
       }
     }
+   sshagent(['DrinkSavvy_AWS_TEST']) {
+    sh "hostname"
+    }  
 }
