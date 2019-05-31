@@ -55,7 +55,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       remote.allowAnyHosts = true
            stage('test hostname aws') 
       { 
-      sshCommand remote: remote: "hostname";
+       sshCommand remote: remote, command: "hostname" 
       }
       }
       
