@@ -37,6 +37,24 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   }     
       }
 }
+      
+      //NEW
+      withCredentials([sshUserPrivateKey(credentialsId: 'DrinkSavvy_AWS_TEST', keyFileVariable: 'KEY', passphraseVariable: '', usernameVariable: 'USERNAME')]) 
+      {
+      def remote = [:]
+      remote.name = 'VM'
+      remote.host = '18.204.226.26'
+      remote.user = "${USERNAME}"
+      remote.identity = "${KEY}"
+      remote.allowAnyHosts = true
+           stage('test hostname aws') 
+      { 
+      sshCommand remote: remote: "hostname";
+      }
+      }
+      
+      //NEW
+      
 } //if condition end
       
 } //node end
