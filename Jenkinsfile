@@ -10,12 +10,12 @@ node {
           //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile .")
     }
       
-    stage('Push image to dockerhub'){
-    withDockerRegistry(credentialsId: 'dockerhub') {
-       sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
-       image1.push()
-      }
-    }
+    //stage('Push image to dockerhub'){
+    //withDockerRegistry(credentialsId: 'dockerhub') {
+    //   sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
+     //  image1.push()
+      //}
+    //}
       if (env.BRANCH_NAME == 'bharat')
 {
 // 
