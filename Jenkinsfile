@@ -29,12 +29,16 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
   remote.allowAnyHosts = true
 
       stage('Pull image and create container') 
-      {
+      {           
+            stage('execute commands')
+            {
+            sshCommand remote: remote, command: "hostname"
+            }           
                   withDockerRegistry(credentialsId: 'dockerhub') 
                   {
-                        //sshCommand remote: remote, command: "hostname ; docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}; docker logout; docker images; docker run -itd -p 8181:80 bharatvyas/jenkins_demo:${env.BUILD_ID}; docker ps"
-                        sshCommand remote: remote, command: "hostname ; docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}; docker logout; docker images; docker ps"
-                        //sshCommand remote: remote, command: "ls -al /home"
+                        sshCommand remote: remote, command: "hostname ; docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}; docker logout; docker images; docker run -itd -p 8181:80 bharatvyas/jenkins_demo:${env.BUILD_ID}; docker ps"
+                        //sshCommand remote: remote, command: "hostname ; docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}; docker logout; docker images; docker ps"
+                        
                         //sh "docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}"
                   }     
       }
