@@ -2,8 +2,6 @@ node {
       stage('Scm Checkout'){
             checkout scm
             sh "echo $BRANCH_NAME"
-           GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
-           echo "GIT REPO URL is $GIT_REPO_URL"
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
@@ -39,7 +37,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   sshCommand remote: remote, command: "pwd"
         
             sshCommand remote: remote, command: "cd /home/test; ls -al"
-            sshCommand remote: remote, command: "tar -cvf /home/backup.tar /home/test/"
+            sshCommand remote: remote, command: "tar -cvf /home/${env.BUILD_ID}.tar /home/test/"
             sshCommand remote: remote, command: "rm -rf /home/test"
             sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
             sshCommand remote: remote, command: "cd ~/jenkins_pipeline_demo_bharat; ls -al"
