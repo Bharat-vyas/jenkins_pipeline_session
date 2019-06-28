@@ -6,7 +6,7 @@ node {
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
       
-    stage ('Build Web Image')
+   /* stage ('Build Web Image')
     {
     sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile ."
           def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile .")
@@ -17,7 +17,7 @@ node {
        sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
        image1.push()
      }
-    }
+    }*/
       if (env.BRANCH_NAME == 'bharat')
 {
 // 
@@ -46,7 +46,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             
       
       
-      stage('Pull image and create container') 
+      /*stage('Pull image and create container') 
       {                     
                   withDockerRegistry(credentialsId: 'dockerhub') 
                   {
@@ -55,7 +55,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                         
                         //sh "docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}"
                   }     
-      }
+      }*/
 
 }     
 } //if condition end      
