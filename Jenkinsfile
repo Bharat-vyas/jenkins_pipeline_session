@@ -19,7 +19,7 @@ node {
      //  image1.push()
       //}
     //}
-      if (env.BRANCH_NAME == 'release')
+      if (env.BRANCH_NAME == 'bharat')
 {
 // 
 withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishortest_localserver', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])
