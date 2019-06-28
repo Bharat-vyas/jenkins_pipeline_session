@@ -30,7 +30,8 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
 
             stage('execute commands')
             {
-            sshCommand remote: remote, command: "hostname"
+            sshCommand remote: remote, command: "cd /home/test"
+            checkout scm
             } 
       
       stage('Pull image and create container') 
