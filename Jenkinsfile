@@ -1,6 +1,6 @@
 node {
       stage('Scm Checkout'){
-            checkout scm
+           // checkout scm
             sh "echo $BRANCH_NAME"
           //  sh "git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'"
             git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'
