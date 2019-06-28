@@ -2,23 +2,22 @@ node {
       stage('Scm Checkout'){
             checkout scm
             sh "echo $BRANCH_NAME"
-           // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'
-       
+           // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
       
     stage ('Build Web Image')
     {
     sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile ."
-          //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile .")
+          def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile .")
     }
       
-    //stage('Push image to dockerhub'){
-    //withDockerRegistry(credentialsId: 'dockerhub') {
-    //   sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
-     //  image1.push()
-      //}
-    //}
+    stage('Push image to dockerhub'){
+    withDockerRegistry(credentialsId: 'dockerhub') {
+       sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
+       image1.push()
+     }
+    }
       if (env.BRANCH_NAME == 'bharat')
 {
 // 
@@ -36,18 +35,16 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             stage('execute commands')
             {
                   sshCommand remote: remote, command: "pwd"
-                //  git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'
+        
             sshCommand remote: remote, command: "cd /home/test; ls -al"
             sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
-           // checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git']]])
-               //   checkout([$class: 'GitSCM', branches: [[name: '*/bharat']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git']]])
             sshCommand remote: remote, command: "cd ~/jenkins_pipeline_demo_bharat; ls -al"
             } 
      
             
       
       
-      /*stage('Pull image and create container') 
+      stage('Pull image and create container') 
       {                     
                   withDockerRegistry(credentialsId: 'dockerhub') 
                   {
@@ -56,7 +53,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                         
                         //sh "docker pull bharatvyas/jenkins_demo:${env.BUILD_ID}"
                   }     
-      }*/
+      }
 
 }     
 } //if condition end      
