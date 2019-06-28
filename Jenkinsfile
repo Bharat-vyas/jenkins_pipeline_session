@@ -38,6 +38,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       }*/
       stage('Scm Checkout')
       {     sh "cd /home/test"
+            sh "ls -al /home"
             checkout scm
       }
 }     
