@@ -40,6 +40,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
            // sshCommand remote: remote, command: "git clone https://github.com/Bharat-vyas/jenkins_pipeline_session.git" 
            // checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git']]])
                   //checkout([$class: 'GitSCM', branches: [[name: '*/bharat']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git']]])
+            git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
             sshCommand remote: remote, command: "cd /home/test; ls -al"
             } 
      
