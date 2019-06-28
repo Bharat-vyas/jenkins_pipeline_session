@@ -4,18 +4,18 @@ node {
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
       
-    //stage ('Build Web Image')
-    //{
-    //sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile ."
+    stage ('Build Web Image')
+    {
+    sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile ."
           //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile .")
-    //}
+    }
       
-    //stage('Push image to dockerhub'){
-    //withDockerRegistry(credentialsId: 'dockerhub') {
-    //   sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
-       //image1.push()
-    //  }
-    //}
+    stage('Push image to dockerhub'){
+    withDockerRegistry(credentialsId: 'dockerhub') {
+       sh "docker push bharatvyas/jenkins_demo:${env.BUILD_ID}"
+       image1.push()
+      }
+    }
       if (env.BRANCH_NAME == 'bharat')
 {
 // 
@@ -39,7 +39,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       stage('Scm Checkout')
       {     sh "cd /home/test"
             sh "ls -al /home"
-            checkout scm
+            
       }
 }     
 } //if condition end      
