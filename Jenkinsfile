@@ -7,10 +7,10 @@ node {
            echo 'WORKSPACE is ---' +env.WORKSPACE
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
-           echo 'auto_back_' +env.JOB_NAME
-           command = "echo $JOB_NAME | cut -d"/" -f -1
-           sh "echo $command"
-           sh "ls -al /var/lib/jenkins"
+            echo 'Project Name is  ----' +env.projectName
+         //  command = "echo $JOB_NAME 
+          // sh "echo $command"
+          // sh "ls -al /var/lib/jenkins"
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
