@@ -47,7 +47,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   //echo env.NEXUS_URL + env.REPONAME
                   sshCommand remote: remote, command: "pwd"
                   sshCommand remote: remote, command: "ls -al /home/test"
-                  sshCommand remote: remote, command: "tar -cvf /home/${JOB_NAME}.tar /home/test/"
+                  sshCommand remote: remote, command: "tar -cvf /home/1.tar /home/test"
                   sshCommand remote: remote, command: "rm -rf /home/test"
                   sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
                   sshCommand remote: remote, command: "ls -al /home/$test"
