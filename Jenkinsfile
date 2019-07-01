@@ -40,17 +40,17 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       
           
             stage('execute commands')
-            {     def subDir="/tmp"
+            {     
+                   NEXUS_URL = 'https://mynexus.com'
+                   REPONAME    = 'myrepo'
+                  
+                  echo env.NEXUS_URL + env.REPONAME
                   sshCommand remote: remote, command: "pwd"
-                  dir("$subDir") 
-                        {
-                           sshCommand remote: remote, command: "pwd"  
-                        }
-        //    sshCommand remote: remote, command: "cd /home/test; ls -al"
-          //        sshCommand remote: remote, command: "tar -cvf /home/${JOB_NAME}.tar /home/test/"
-          //  sshCommand remote: remote, command: "rm -rf /home/test"
-           // sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
-            //sshCommand remote: remote, command: "cd ~/jenkins_pipeline_demo_bharat; ls -al"
+                  sshCommand remote: remote, command: "ls -al /home/test"
+                  sshCommand remote: remote, command: "tar -cvf /home/${JOB_NAME}.tar /home/test/"
+                  sshCommand remote: remote, command: "rm -rf /home/test"
+                  sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
+                  sshCommand remote: remote, command: "ls -al /home/$test"
             } 
      
             
