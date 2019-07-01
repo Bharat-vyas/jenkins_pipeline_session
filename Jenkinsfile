@@ -7,7 +7,6 @@ node {
            echo 'WORKSPACE is ---' +env.WORKSPACE
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
-           def subDir="/home/test"
            
           
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
@@ -41,7 +40,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       
           
             stage('execute commands')
-            {     def subDir="/home/test"
+            {     def subDir="/tmp"
                   sshCommand remote: remote, command: "pwd"
                   dir("$subDir") 
                         {
