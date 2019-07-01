@@ -46,7 +46,12 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             echo "git = $GIT_REPO_URL"   
             checkout([$class: 'GitSCM', branches: [[name: '*/test']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git']]])
             }
-          
+          subDir = "/home"
+            def subDir = "/home"
+      dir('subDir') {
+         checkout scm
+            }
+      
             stage('execute commands')
             {     
                   // NEXUS_URL = 'https://mynexus.com'
