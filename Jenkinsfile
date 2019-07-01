@@ -7,13 +7,7 @@ node {
            echo 'WORKSPACE is ---' +env.WORKSPACE
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
-           command = "echo $JOB_NAME | cut -d '/' -f1"
-
-       //     echo ${command}
-              echo env.command;
-            echo command;
-           echo 'auto_back_' +env.command
-           echo 'auto_back_${env.command}'
+        //   command = "echo $JOB_NAME | cut -d '/' -f1"
            // sh "ls -al /var/lib/jenkins"
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
@@ -31,7 +25,7 @@ node {
        image1.push()
      }
     }*/
-      if (env.BRANCH_NAME == 'master')
+      if (env.BRANCH_NAME == 'test')
 {
 // 
 withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishortest_localserver', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])
@@ -48,8 +42,8 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             stage('execute commands')
             {     
                   // NEXUS_URL = 'https://mynexus.com'
-                  // REPONAME    = 'myrepo'
-                  
+                  webpath = '/home/test'
+                  path = '.'
                   //echo env.NEXUS_URL + env.REPONAME
                   sshCommand remote: remote, command: "pwd"
                   sshCommand remote: remote, command: "ls -al /home/test"
@@ -57,6 +51,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   sshCommand remote: remote, command: "rm -rf /home/test"
                   sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
                   sshCommand remote: remote, command: "ls -al /home/test"
+                  sshPut remote: remote, from: '.', into: "${webPath}"
             } 
      
             
