@@ -27,7 +27,7 @@ node {
        image1.push()
      }
     }*/
-      if (env.BRANCH_NAME == 'master')
+      if (env.BRANCH_NAME == 'test')
 {
 // 
 withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishortest_localserver', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])
