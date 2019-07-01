@@ -7,8 +7,12 @@ node {
            echo 'WORKSPACE is ---' +env.WORKSPACE
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
-           def command = "echo $JOB_NAME | cut -d '/' -f1";
+           def command = "echo $JOB_NAME | cut -d '/' -f1"
+           echo "GIT REPO URL is $command"
            echo command;
+           echo $command
+            echo $command;
+            echo ${command}
             //  echo env.command;
            // echo command;
           // echo 'auto_back_' +env.command
