@@ -44,10 +44,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
   remote.password = "${PASSWORD}"
   remote.allowAnyHosts = true
             
-         //  subDir = "/home"
-          //  def subDir = "/home"
-          //  dir('subdir')
-          //  {
+
             stage ('Checkout')
             {
            checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]]) }
