@@ -77,4 +77,3 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
 }     
 } //if condition end      
 }//node end
-}
