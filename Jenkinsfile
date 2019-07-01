@@ -44,18 +44,14 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
   remote.password = "${PASSWORD}"
   remote.allowAnyHosts = true
             
-         /*   subDir = "/home"
-            def subDir = "/home"
-            dir('subdir')
-            {
+         //  subDir = "/home"
+          //  def subDir = "/home"
+          //  dir('subdir')
+          //  {
             stage ('Checkout')
             {
-            command = "echo $JOB_NAME | cut -d '/' -f2"
-            GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
-            echo "git = $GIT_REPO_URL"   
-	   //   checkout([$class: 'GitSCM', branches: [[name: '**']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: true, timeout: 60]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bitbucket', url: "https://bitbucket.org/ecosmobteam/${GIT_REPO_URL}.git"]]])
-           // }
-            //}*/
+           checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]]) }
+            }
       
       
             /* stage('execute commands')
