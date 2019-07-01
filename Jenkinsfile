@@ -3,7 +3,9 @@ node {
          //   checkout scm
            // sh "echo $BRANCH_NAME"
 //           checkout([$class: 'GitSCM', branches: [[name: '**']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: 'https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git']]])
-            
+            command = "echo $JOB_NAME | cut -d '/' -f2"
+    GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
+    echo "git = $GIT_REPO_URL"
     checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://bitbucket.org/ecosmobteam/${GIT_REPO_URL}.git"]]])
             echo 'BUILD_URL is ---' +env.BUILD_URL
            echo 'JOB_URL is -----' +env.JOB_URL
