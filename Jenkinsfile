@@ -7,9 +7,9 @@ node {
            echo 'WORKSPACE is ---' +env.WORKSPACE
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
-     
-           def repositoryUrl = scm.userRemoteConfigs[0].url  \
-           echo "GIT REPO URL is $repositoryUrl"
+           def subDir="/home/test"
+           
+          
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
@@ -43,7 +43,11 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             stage('execute commands')
             {
                   sshCommand remote: remote, command: "pwd"
-        
+                  dir("$subDir") 
+                        {
+                              sh "pwd"
+                              sh "ls"
+                        }
         //    sshCommand remote: remote, command: "cd /home/test; ls -al"
           //        sshCommand remote: remote, command: "tar -cvf /home/${JOB_NAME}.tar /home/test/"
           //  sshCommand remote: remote, command: "rm -rf /home/test"
