@@ -41,7 +41,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       
           
             stage('execute commands')
-            {
+            {     def subDir="/home/test"
                   sshCommand remote: remote, command: "pwd"
                   dir("$subDir") 
                         {
