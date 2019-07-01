@@ -7,7 +7,7 @@ node {
            echo 'WORKSPACE is ---' +env.WORKSPACE
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
-            def subDir="/tmp"
+            def subDir="."
             dir("$subDir") 
                         {
                               sh "pwd"
