@@ -38,21 +38,22 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
   remote.user = "${USERNAME}"
   remote.password = "${PASSWORD}"
   remote.allowAnyHosts = true
-
-             stage ('Checkout')
+            
+            subDir = "/home"
+            def subDir = "/home"
+            dir('subdir')
+            {
+            stage ('Checkout')
             {
             command = "echo $JOB_NAME | cut -d '/' -f2"
             GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
             echo "git = $GIT_REPO_URL"   
             checkout([$class: 'GitSCM', branches: [[name: '*/test']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git']]])
             }
-          subDir = "/home"
-            def subDir = "/home"
-      dir('subDir') {
-         checkout scm
             }
+      d
       
-            stage('execute commands')
+            /* stage('execute commands')
             {     
                   // NEXUS_URL = 'https://mynexus.com'
                   webpath = '/home/test'
@@ -65,7 +66,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
                   sshCommand remote: remote, command: "ls -al /home/test"
                   sshPut remote: remote, from: './Jenkinsfile', into: "/home/"
-            } 
+            } */
      
             
       
