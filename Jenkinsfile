@@ -2,6 +2,12 @@ node {
       stage('Scm Checkout'){
             checkout scm
            // sh "echo $BRANCH_NAME"
+           echo 'BUILD_URL is ---' +env.BUILD_URL
+           echo 'JOB_URL is -----' +env.JOB_URL
+           echo 'WORKSPACE is ---' +env.WORKSPACE
+           echo 'JOB NAME is ----' +env.JOB_NAME
+           echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
+     
             command = "echo $JOB_NAME | cut -d '/' -f2"
      	      GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
             echo "GIT REPO URL is $GIT_REPO_URL"
@@ -39,11 +45,11 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             {
                   sshCommand remote: remote, command: "pwd"
         
-            sshCommand remote: remote, command: "cd /home/test; ls -al"
-                  sshCommand remote: remote, command: "tar -cvf /home/${JOB_NAME}.tar /home/test/"
-            sshCommand remote: remote, command: "rm -rf /home/test"
-            sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
-            sshCommand remote: remote, command: "cd ~/jenkins_pipeline_demo_bharat; ls -al"
+        //    sshCommand remote: remote, command: "cd /home/test; ls -al"
+          //        sshCommand remote: remote, command: "tar -cvf /home/${JOB_NAME}.tar /home/test/"
+          //  sshCommand remote: remote, command: "rm -rf /home/test"
+           // sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
+            //sshCommand remote: remote, command: "cd ~/jenkins_pipeline_demo_bharat; ls -al"
             } 
      
             
