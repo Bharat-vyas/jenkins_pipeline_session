@@ -7,6 +7,7 @@ node {
            echo 'WORKSPACE is ---' +env.WORKSPACE
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
+           echo 'auto_back' +env.JOB_BASE_NAME
            sh "ls -al /var/lib/jenkins"
           
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
@@ -25,7 +26,7 @@ node {
        image1.push()
      }
     }*/
-      if (env.BRANCH_NAME == 'test')
+      if (env.BRANCH_NAME == 'master')
 {
 // 
 withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishortest_localserver', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])
