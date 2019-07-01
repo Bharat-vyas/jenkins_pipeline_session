@@ -41,10 +41,10 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
           
             stage('execute commands')
             {     
-                   NEXUS_URL = 'https://mynexus.com'
-                   REPONAME    = 'myrepo'
+                  // NEXUS_URL = 'https://mynexus.com'
+                  // REPONAME    = 'myrepo'
                   
-                  echo env.NEXUS_URL + env.REPONAME
+                  //echo env.NEXUS_URL + env.REPONAME
                   sshCommand remote: remote, command: "pwd"
                   sshCommand remote: remote, command: "ls -al /home/test"
                   sshCommand remote: remote, command: "tar -cvf /home/${JOB_NAME}.tar /home/test/"
