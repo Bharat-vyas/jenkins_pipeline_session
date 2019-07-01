@@ -1,13 +1,9 @@
 node {
       stage('Scm Checkout'){
          //   checkout scm
-           // sh "echo $BRANCH_NAME"
-//           checkout([$class: 'GitSCM', branches: [[name: '**']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: 'https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git']]])
-    //        command = "echo $JOB_NAME | cut -d '/' -f1"
-    //GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
-    //echo "git = $GIT_REPO_URL"
-    checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
-            echo 'BUILD_URL is ---' +env.BUILD_URL
+              checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
+          
+           echo 'BUILD_URL is ---' +env.BUILD_URL
            echo 'JOB_URL is -----' +env.JOB_URL
            echo 'WORKSPACE is ---' +env.WORKSPACE
            echo 'JOB NAME is ----' +env.JOB_NAME
@@ -15,7 +11,6 @@ node {
             
             
         //   command = "echo $JOB_NAME | cut -d '/' -f1"
-           // sh "ls -al /var/lib/jenkins"
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
@@ -45,15 +40,14 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
   remote.allowAnyHosts = true
             
 
-            stage ('Checkout')
+            /*stage ('Checkout')
             {
            checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]]) }
-            }
+            }*/
       
       
-            /* stage('execute commands')
-            {     
-                  // NEXUS_URL = 'https://mynexus.com'
+            stage('execute commands')
+            {
                   webpath = '/home/test'
                   path = '.'
                   //echo env.NEXUS_URL + env.REPONAME
@@ -63,8 +57,8 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   sshCommand remote: remote, command: "rm -rf /home/test"
                   sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
                   sshCommand remote: remote, command: "ls -al /home/test"
-                  sshPut remote: remote, from: './Jenkinsfile', into: "/home/"
-            } */
+                  sshPut remote: remote, from: './Jenkinsfile', into: "${webpath}"
+            } 
      
             
       
