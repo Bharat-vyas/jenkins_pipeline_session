@@ -7,16 +7,13 @@ node {
            echo 'WORKSPACE is ---' +env.WORKSPACE
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
-           def command = "echo $JOB_NAME | cut -d '/' -f1"
-           echo "GIT REPO URL is $command"
-           echo command;
-           echo $command
-            echo $command;
-            echo ${command}
-            //  echo env.command;
-           // echo command;
-          // echo 'auto_back_' +env.command
-          //  echo 'auto_back_'${env.command}
+           command = "echo $JOB_NAME | cut -d '/' -f1"
+
+       //     echo ${command}
+              echo env.command;
+            echo command;
+           echo 'auto_back_' +env.command
+           echo 'auto_back_'${env.command}
            // sh "ls -al /var/lib/jenkins"
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
