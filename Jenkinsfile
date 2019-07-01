@@ -10,8 +10,8 @@ node {
             def subDir="/var/lib/jenkins/"
             dir("$subDir") 
                         {
-                              sh "pwd"
-                              sh "ls"
+                              
+                              sh "ls -al /vat/lib/jenkins"
                         }
           
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
