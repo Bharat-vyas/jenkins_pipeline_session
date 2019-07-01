@@ -8,7 +8,7 @@ node {
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
             echo 'Project Name is  ----' +env.projectName
-           command = "echo $JOB_NAME | cut -d '/' -f2"
+           command = "echo $JOB_NAME | cut -d '/' -f1"
            sh "echo $command" 
           // sh "ls -al /var/lib/jenkins"
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
