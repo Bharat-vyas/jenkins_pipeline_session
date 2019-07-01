@@ -8,7 +8,7 @@ node {
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
            echo 'auto_back_' +env.JOB_NAME
-           command = "echo $JOB_NAME | cut -d '/' -f2"
+           command = "echo $JOB_NAME "
            sh "ls -al /var/lib/jenkins"
            sh "echo $command"
           
