@@ -2,6 +2,9 @@ node {
       stage('Scm Checkout'){
             checkout scm
             sh "echo $BRANCH_NAME"
+            command = "echo $JOB_NAME | cut -d '/' -f2"
+     	      GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
+            echo "GIT REPO URL is $GIT_REPO_URL"
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
