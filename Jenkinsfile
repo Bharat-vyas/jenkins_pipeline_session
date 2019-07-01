@@ -13,7 +13,7 @@ node {
               echo env.command;
             echo command;
            echo 'auto_back_' +env.command
-           echo 'auto_back_'${env.command}
+           echo 'auto_back_${env.command}'
            // sh "ls -al /var/lib/jenkins"
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
