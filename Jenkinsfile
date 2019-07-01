@@ -51,7 +51,6 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             command = "echo $JOB_NAME | cut -d '/' -f2"
             GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
             echo "git = $GIT_REPO_URL"   
-            checkout([$class: 'GitSCM', branches: [[name: '*/test']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git']]])        
 	   //   checkout([$class: 'GitSCM', branches: [[name: '**']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: true, timeout: 60]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bitbucket', url: "https://bitbucket.org/ecosmobteam/${GIT_REPO_URL}.git"]]])
            // }
             //}*/
