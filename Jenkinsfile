@@ -8,7 +8,7 @@ node {
            echo 'JOB NAME is ----' +env.JOB_NAME
            echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
            command = "echo $JOB_NAME | cut -d '/' -f1"
-           echo $command;
+           echo command;
            // echo command;
           // echo 'auto_back_' +env.command
           //  echo 'auto_back_'${env.command}
