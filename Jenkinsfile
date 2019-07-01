@@ -51,7 +51,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             checkout([$class: 'GitSCM', branches: [[name: '*/test']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git']]])
             }
             }
-      d
+      
       
             /* stage('execute commands')
             {     
