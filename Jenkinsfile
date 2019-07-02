@@ -11,6 +11,10 @@ node {
            //echo 'WORKSPACE is ---' +env.WORKSPACE
             def var1 = 'hello world'
             echo "${var1}"
+            echo "$var1"
+            echo var1
+            
+            echo ${var1}
             
         //   command = "echo $JOB_NAME | cut -d '/' -f1"
            // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
