@@ -81,16 +81,3 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
 }     
 } //if condition end      
 }//node end
-
-
-
-def Properties getProperties(filename) {
-    def properties = new Properties()
-    properties.load(new StringReader(readFile(filename)))
-    return properties
-}
-
-@NonCPS
-def jsonParse(def json) {
-    new groovy.json.JsonSlurperClassic().parseText(json)
-}
