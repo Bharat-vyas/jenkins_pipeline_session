@@ -9,7 +9,7 @@ node {
            //echo 'JOB NAME is ----' +env.JOB_NAME
            //echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
            //echo 'WORKSPACE is ---' +env.WORKSPACE
-            def var1 = hello world
+            def var1 = 'hello world'
             echo ${var1}
             
         //   command = "echo $JOB_NAME | cut -d '/' -f1"
