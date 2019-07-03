@@ -1,7 +1,7 @@
 node {
       stage('Scm Checkout'){
-         //   checkout scm
-              checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
+            checkout scm
+             // checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
            echo "$pwd"
             stash includes: "Jenkinsfile", name: 'new'
             dir('workspace') {
