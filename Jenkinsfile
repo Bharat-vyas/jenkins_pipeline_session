@@ -70,7 +70,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
           //        sshCommand remote: remote, command: "rm -rf /home/test"
            //       sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
            //       sshCommand remote: remote, command: "ls -al /home/test"
-                  sshPut remote: remote, from: '${env.WORKSPACE}', into: "${webpath}"
+                  sshPut remote: remote, from: '/var/lib/jenkins/workspace/jenkins_pipeline_demo_test/', into: "${webpath}"
                   
             } 
      
