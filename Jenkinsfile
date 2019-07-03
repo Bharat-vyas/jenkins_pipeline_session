@@ -5,7 +5,7 @@ node {
            echo "$pwd"
             
             dir('workspace') {
-             stash includes: "*", name: 'sonar'
+             stash includes: "**", name: 'sonar'
             }
             //stash includes: "/workspace/jenkins_pipeline_demo_bharat/**", name: 'newstash'
            //echo 'BUILD_URL is ---' +env.BUILD_URL
