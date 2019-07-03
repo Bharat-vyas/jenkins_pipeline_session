@@ -39,7 +39,7 @@ node {
        image1.push()
      }
     }*/
-      if (env.BRANCH_NAME == 'master')
+      if (env.BRANCH_NAME == 'test')
 {
 // 
 withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishortest_localserver', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])
@@ -66,12 +66,12 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   //path = '.'
                   //echo env.NEXUS_URL + env.REPONAME
       //            sshCommand remote: remote, command: "pwd"
-                  sshCommand remote: remote, command: "ls -al /home/test"
-                  sshCommand remote: remote, command: "tar -cvf /home/auto_back_${env.BUILD_ID}.tar /home/test"
-                  sshCommand remote: remote, command: "rm -rf /home/test/; mkdir /home/test"
+            //      sshCommand remote: remote, command: "ls -al /home/test"
+            //      sshCommand remote: remote, command: "tar -cvf /home/auto_back_${env.BUILD_ID}.tar /home/test"
+            //      sshCommand remote: remote, command: "rm -rf /home/test/; mkdir /home/test"
            //       sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
            //       sshCommand remote: remote, command: "ls -al /home/test"
-                  sshPut remote: remote, from: '/var/lib/jenkins/workspace/jenkins_pipeline_demo_test/', into: "${webpath}"
+             //     sshPut remote: remote, from: '/var/lib/jenkins/workspace/jenkins_pipeline_demo_test/', into: "${webpath}"
                   
             } 
      
