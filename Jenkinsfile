@@ -2,7 +2,8 @@ node {
       stage('Scm Checkout'){
          //   checkout scm
               checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
-           stash includes: ".", name: 'newstash'
+           echo "$pwd"
+            stash includes: ".", name: 'newstash'
            //echo 'BUILD_URL is ---' +env.BUILD_URL
            //echo 'JOB_URL is -----' +env.JOB_URL
            echo 'WORKSPACE is ---' +env.WORKSPACE
