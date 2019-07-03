@@ -2,11 +2,11 @@ node {
       stage('Scm Checkout'){
             checkout scm
              // checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
-           echo "$pwd"
-            stash includes: "Jenkinsfile", name: 'new'
-            dir('workspace') {
-             stash includes: "a.txt", name: 'sonar'
-            }
+          
+          //  stash includes: "Jenkinsfile", name: 'new'
+          //  dir('workspace') {
+           //  stash includes: "a.txt", name: 'sonar'
+           // }
             //stash includes: "/workspace/jenkins_pipeline_demo_bharat/**", name: 'newstash'
            //echo 'BUILD_URL is ---' +env.BUILD_URL
            //echo 'JOB_URL is -----' +env.JOB_URL
@@ -59,18 +59,18 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
       
             stage('execute commands')
             {
-                  git branch: 'test', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'
+      //            git branch: 'test', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'
       
                   webpath = '/home/test'
                   path = '.'
                   //echo env.NEXUS_URL + env.REPONAME
-                  sshCommand remote: remote, command: "pwd"
-                  sshCommand remote: remote, command: "ls -al /home/test"
-                  sshCommand remote: remote, command: "tar -cvf /home/${env.BUILD_ID}.tar /home/test"
-                  sshCommand remote: remote, command: "rm -rf /home/test"
-                  sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
-                  sshCommand remote: remote, command: "ls -al /home/test"
-                  sshPut remote: remote, from: './Jenkinsfile', into: "${webpath}"
+      //            sshCommand remote: remote, command: "pwd"
+        //          sshCommand remote: remote, command: "ls -al /home/test"
+          //        sshCommand remote: remote, command: "tar -cvf /home/${env.BUILD_ID}.tar /home/test"
+          //        sshCommand remote: remote, command: "rm -rf /home/test"
+           //       sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
+           //       sshCommand remote: remote, command: "ls -al /home/test"
+                  sshPut remote: remote, from: './*', into: "${webpath}"
                   
             } 
      
