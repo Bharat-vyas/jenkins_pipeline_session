@@ -4,7 +4,7 @@ node {
               checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
            echo "$pwd"
             dir('workspace') {
-            stash 'a'
+            stash includes: "workspace/a", name: 'sonar'
             }
             //stash includes: "/workspace/jenkins_pipeline_demo_bharat/**", name: 'newstash'
            //echo 'BUILD_URL is ---' +env.BUILD_URL
