@@ -2,7 +2,7 @@ node {
       stage('Scm Checkout'){
          //   checkout scm
               checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
-          
+           stash includes: ".", name: 'newstash'
            //echo 'BUILD_URL is ---' +env.BUILD_URL
            //echo 'JOB_URL is -----' +env.JOB_URL
            echo 'WORKSPACE is ---' +env.WORKSPACE
@@ -12,7 +12,7 @@ node {
             def var1 = 'hello world'
             echo "${var1}"
             echo "$var1"
-            echo var1
+        //    echo var1
             
             
             
@@ -52,7 +52,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             }*/
       
       
-            /*stage('execute commands')
+            stage('execute commands')
             {
                   git branch: 'test', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'
       
@@ -66,7 +66,8 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
                   sshCommand remote: remote, command: "ls -al /home/test"
                   sshPut remote: remote, from: './Jenkinsfile', into: "${webpath}"
-            }*/ 
+                  
+            } 
      
             
       
