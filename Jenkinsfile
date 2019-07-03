@@ -17,7 +17,7 @@ node {
             def var1 = 'hello world'
             echo "${var1}"
             echo "$var1"
-            echo $WORKSPACE
+          //  echo $WORKSPACE
         //    echo var1
             
             
