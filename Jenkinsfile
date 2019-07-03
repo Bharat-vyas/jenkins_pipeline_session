@@ -2,7 +2,7 @@ node {
       stage('Scm Checkout'){
             checkout scm
              // checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
-           sh "tar -cvf workspace.tar $WORKSPACE"
+           sh "tar -cvf workspace.tar ."
           //  stash includes: "Jenkinsfile", name: 'new'
           //  dir('workspace') {
            //  stash includes: "a.txt", name: 'sonar'
