@@ -3,7 +3,7 @@ node {
          //   checkout scm
               checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
            echo "$pwd"
-            stash includes: "a.txt", name: 'sonar'
+            stash includes: "Jenkinsfile", name: 'new'
             dir('workspace') {
              stash includes: "a.txt", name: 'sonar'
             }
