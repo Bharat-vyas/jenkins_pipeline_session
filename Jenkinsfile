@@ -1,29 +1,28 @@
 node {
       stage('Scm Checkout'){
             checkout scm
-             // checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
-           sh "tar -cvf workspace.tar ."
-          //  stash includes: "Jenkinsfile", name: 'new'
-          //  dir('workspace') {
-           //  stash includes: "a.txt", name: 'sonar'
-           // }
+          // checkout([$class: 'GitSCM', branches: [[name: '*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false, timeout: 120]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Bitbucket', url: "https://Bharat-vyas@bitbucket.org/Bharat-vyas/testrepo.git"]]])
+         //  stash includes: "Jenkinsfile", name: 'new'
+         //  dir('workspace') {
+         //  stash includes: "a.txt", name: 'sonar'
+         // }
             //stash includes: "/workspace/jenkins_pipeline_demo_bharat/**", name: 'newstash'
-           //echo 'BUILD_URL is ---' +env.BUILD_URL
-           //echo 'JOB_URL is -----' +env.JOB_URL
+            //echo 'BUILD_URL is ---' +env.BUILD_URL
+            //echo 'JOB_URL is -----' +env.JOB_URL
            echo 'WORKSPACE is ---' +env.WORKSPACE
            //echo 'JOB NAME is ----' +env.JOB_NAME
            //echo 'JOB Base NAME is ----' +env.JOB_BASE_NAME
            //echo 'WORKSPACE is ---' +env.WORKSPACE
-            def var1 = 'hello world'
-            echo "${var1}"
-            echo "$var1"
+           def var1 = 'hello world'
+           echo "${var1}"
+           echo "$var1"
           //  echo $WORKSPACE
-        //    echo var1
+         //    echo var1
             
             
             
         //   command = "echo $JOB_NAME | cut -d '/' -f1"
-           // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
+        // git branch: 'bharat', url: 'https://github.com/Bharat-vyas/jenkins_pipeline_session.git'      
       //git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/jenkins_pipeline_session.git'
 }
       
@@ -65,13 +64,13 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   webpath = '/home/test'
                   //path = '.'
                   //echo env.NEXUS_URL + env.REPONAME
-      //            sshCommand remote: remote, command: "pwd"
-            //      sshCommand remote: remote, command: "ls -al /home/test"
-            //      sshCommand remote: remote, command: "tar -cvf /home/auto_back_${env.BUILD_ID}.tar /home/test"
-            //      sshCommand remote: remote, command: "rm -rf /home/test/; mkdir /home/test"
-           //       sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
-           //       sshCommand remote: remote, command: "ls -al /home/test"
-           //       sshPut remote: remote, from: '/var/lib/jenkins/workspace/jenkins_pipeline_demo_test/', into: "${webpath}"
+                    sshCommand remote: remote, command: "pwd"
+                    sshCommand remote: remote, command: "ls -al /home/test"
+                    sshCommand remote: remote, command: "tar -cvf /home/auto_back_${env.BUILD_ID}.tar /home/test"
+                    sshCommand remote: remote, command: "rm -rf /home/test/; mkdir /home/test"
+                    sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
+                    sshCommand remote: remote, command: "ls -al /home/test"
+                    sshPut remote: remote, from: '/var/lib/jenkins/workspace/jenkins_pipeline_demo_test/', into: "${webpath}"
                     sshPut remote: remote, from: 'workspace.tar', into: "${webpath}"
             } 
      
