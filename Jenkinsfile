@@ -14,7 +14,7 @@ node {
 		
 		 stage('Backup and remove the older code base')
             {
-		     sshCommand remote: remote, command: "ls -al"
+		     sshCommand remote: remote, command: "ls -al; pwd; hostname"
 	    }
 	}
 	
