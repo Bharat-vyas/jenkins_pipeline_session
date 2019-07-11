@@ -3,9 +3,7 @@ node {
 	    checkout scm
         sh "tar -cvf boothkicker_latest.tar ."
     }
-options {
-        timeout(time: 1, unit: 'HOURS') 
-    }
+
 	withCredentials([usernamePassword(credentialsId: 'QAMAC', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
       def remote = [:]
       remote.name = 'mac'
