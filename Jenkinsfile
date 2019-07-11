@@ -4,6 +4,23 @@ node {
         sh "tar -cvf boothkicker_latest.tar ."
     }
 
+	withCredentials([usernamePassword(credentialsId: 'QAMAC', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+      def remote = [:]
+      remote.name = 'mac'
+      remote.host = '172.16.16.221'
+      remote.user = "${USERNAME}"
+      remote.password = "${PASSWORD}"
+      remote.allowAnyHosts = true
+		
+		 stage('Backup and remove the older code base')
+            {
+		     sshCommand remote: remote, command: "ls -al"
+	    }
+	}
+	
+	
+	
+	
          if (env.BRANCH_NAME == 'release')
       {
       // 
