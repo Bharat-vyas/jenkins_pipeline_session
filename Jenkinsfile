@@ -15,9 +15,8 @@ node {
 		 stage('Run Katalon test')
             {
 		     sshCommand remote: remote, command: "ls; hostname"
-   		     sshCommand remote: remote, command: "sh label: '', script: '''cd /Applications/KatalonStudio.app/Contents/MacOS
-ls'''"
-		     sshCommand remote: remote, command: "cd /Applications/KatalonStudio.app/Contents/MacOS; ls"
+   		     sshCommand remote: remote, command: "cd /Applications/KatalonStudio.app/Contents/MacOS/; ls"
+		     sshCommand remote: remote, command: "cd /Applications/KatalonStudio.app/Contents/MacOS; ls /Applications/KatalonStudio.app/Contents/MacOS"
 		    
 	    }
 	}
