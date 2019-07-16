@@ -12,9 +12,10 @@ node {
       remote.password = "${PASSWORD}"
       remote.allowAnyHosts = true
 		
-		 stage('Backup and remove the older code base')
+		 stage('Run Katalon test')
             {
-		     sshCommand remote: remote, command: "ls -al; pwd; hostname"
+		     sshCommand remote: remote, command: "ls; hostname" 
+		     sshCommand remote: remote, command: "cd "
 	    }
 	}
 	
