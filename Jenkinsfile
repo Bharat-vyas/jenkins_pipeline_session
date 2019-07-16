@@ -15,7 +15,8 @@ node {
 		 stage('Run Katalon test')
             {
 		     sshCommand remote: remote, command: "ls; hostname" 
-		     sshCommand remote: remote, command: "cd "
+		     sshCommand remote: remote, command: "cd /Applications/Katalon\ Studio.app/Contents/MacOS; ./katalon --args -noSplash  -runMode=console -projectPath="/Applications/Katalon Studio.app/Contents/Eclipse/Automation/NetCarrier_Portal_TestSuite/NetCarrier_Portal.prj" -retry=0 -testSuiteCollectionPath="Test Suites/NetCarrier_Collection""
+		    
 	    }
 	}
 	
