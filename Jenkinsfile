@@ -14,7 +14,7 @@ node {
 		
 		 stage('Run Katalon test')
             {
-		    SOME_PATH="/Applications/Katalon\Studio.app/
+		    SOME_PATH="/Applications/Katalon Studio.app/
 		     sshCommand remote: remote, command: "ls; hostname"
 		    sshCommand remote: remote, command: "cd ${SOME_PATH}; ls"
 		    // sshCommand remote: remote, command: "cd /Applications/KatalonStudio.app/Contents/MacOS; ls /Applications/KatalonStudio.app/Contents/MacOS"
