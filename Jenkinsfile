@@ -33,7 +33,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   } 
                   else {
                         echo 'No'
-                         sshCommand remote: remote, command: "pwd"
+                         sshCommand remote: remote, command: "ls -al"
                   }
                   
             //sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
