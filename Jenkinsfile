@@ -28,9 +28,10 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
  
                   def exists = fileExists '/home/test/Jenkinsfile'
 
-                  if (exists) {
+                  if (fileExists('/home/test/Jenkinsfile')) {
                         echo 'Yes'
-                  } else {
+                  } 
+                  else {
                         echo 'No'
                   }
                   
