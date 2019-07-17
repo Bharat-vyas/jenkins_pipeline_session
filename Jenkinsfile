@@ -7,7 +7,7 @@ node {
 }
       
    
-      if (env.BRANCH_NAME == 'bharat')
+      if (env.BRANCH_NAME == 'latest')
 {
 // 
 withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishortest_localserver', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])
