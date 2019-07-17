@@ -17,7 +17,7 @@ node {
 		    //SOME_PATH="/Applications/Katalon Studio.app/"
 		     sshCommand remote: remote, command: "ls; hostname"
 		    //sshCommand remote: remote, command: "cd /Applications; ls; cd 'Katalon Studio.app' ls"
-		     sshCommand remote: remote, command: "cd /Applications/; ls"
+		     sshCommand remote: remote, command: "cd /Applications/Kat*; ls"
 		    
 	    }
 	}
