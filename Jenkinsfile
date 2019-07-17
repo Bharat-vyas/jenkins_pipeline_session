@@ -32,6 +32,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                         echo 'Yes'
                   } 
                   else {
+                        sh "pwd"
                         echo 'No'
                   }
                   
