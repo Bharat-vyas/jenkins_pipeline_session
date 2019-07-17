@@ -14,11 +14,11 @@ node {
 		
 		 stage('Run Katalon test')
             {
-		    //SOME_PATH="/Applications/Katalon Studio.app/"
+		    SOME_PATH="/Applications/Kat*/Contents/Eclipse/Automation/NetCarrier_Portal_TestSuite/"
 		     sshCommand remote: remote, command: "ls; hostname"
 		    //sshCommand remote: remote, command: "cd /Applications; ls; cd 'Katalon Studio.app' ls"
 		   //  sshCommand remote: remote, command: "cd /Applications/Kat*/Contents/Eclipse/Automation/NetCarrier_Portal_TestSuite/; ls"
-		    sshCommand remote: remote, command: "cd /Applications/Kat*/Contents/MacOS; ./katalon --args -noSplash  -runMode=console -projectPath="/Applications/Kat*/Contents/Eclipse/Automation/NetCarrier_Portal_TestSuite/NetCarrier_Portal.prj" -retry=0 -testSuiteCollectionPath="Test_Suites/NetCarrier_Collection""
+		    sshCommand remote: remote, command: "cd /Applications/Kat*/Contents/MacOS; ./katalon --args -noSplash  -runMode=console -projectPath="${SOME_PATH}/NetCarrier_Portal.prj" -retry=0 -testSuiteCollectionPath="Test_Suites/NetCarrier_Collection""
 		    //sshCommand remote: remote, command: "./katalon --args -noSplash  -runMode=console -projectPath="/Applications/Kat*/Contents/Eclipse/Automation/NetCarrier_Portal_TestSuite/NetCarrier_Portal.prj" -retry=0 -testSuiteCollectionPath="Test_Suites/NetCarrier_Collection""
 	    }
 	}
