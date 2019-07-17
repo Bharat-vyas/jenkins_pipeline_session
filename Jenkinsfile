@@ -28,7 +28,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
  
                   def exists = fileExists '/home/test/Jenkinsfile'
 
-                  if (fileExists('docker-compose.yml)) {
+                  if (fileExists('docker-compose.yml')) {
                         echo 'Yes'
                   } 
                   else {
