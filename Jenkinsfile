@@ -26,14 +26,22 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             sshCommand remote: remote, command: "pwd"
             sshCommand remote: remote, command: "cd /home/test; ls -al"
  
-                  def exists = fileExists '/home/test/Jenkinsfile'
-
+                  /*def exists = fileExists '/home/test/Jenkinsfile'
                   if (fileExists('docker-compose.yml')) {
                         echo 'Yes'
                   } 
                   else {
                         echo 'No'
                          sshCommand remote: remote, command: "ls -al"
+                  }*/
+                  
+                  def folder = new File( '/home/test' )
+if( !folder.exists() ) {
+  // Create all folders up-to and including B
+  //folder.mkdirs()
+      echo 'yes'
+}
+                  else{echo 'NO'
                   }
                   
             //sshCommand remote: remote, command: "git clone -b bharat https://github.com/Bharat-vyas/jenkins_pipeline_session.git /home/test" 
