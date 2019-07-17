@@ -26,7 +26,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
             sshCommand remote: remote, command: "pwd"
             sshCommand remote: remote, command: "cd /home/test; ls -al"
  
-                  def exists = fileExists '/root/test'
+                  def exists = fileExists '/home/test'
 
                   if (exists) {
                         echo 'Yes'
