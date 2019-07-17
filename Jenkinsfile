@@ -16,8 +16,8 @@ node {
             {
 		    SOME_PATH="/Applications/Kat*/Contents/MacOS"
 		    sshCommand remote: remote, command: "ls; hostname"
-		 //   sshCommand remote: remote, command: "cd /Applications/Kat*/Contents/Eclipse/Automation/NetCarrier_Portal_TestSuite; sh ./script.sh"
-		    sshCommand remote: remote, command: "${SOME_PATH}; ./katalon --args -noSplash  -runMode=console -projectPath="/Applications/Katalon*/Contents/Eclipse/Automation/NetCarrier_Portal_TestSuite/NetCarrier_Portal.prj" -retry=1 -retryFailedTestCases=true -testSuitePath="Test_Suites/Verify_Create_ServicePackage_DID_Tenant_User" -executionProfile="default" -browserType="Chrome"
+		    sshCommand remote: remote, command: "cd /Applications/Kat*/Contents/Eclipse/Automation/NetCarrier_Portal_TestSuite; sh ./script.sh"
+		//    sshCommand remote: remote, command: "${SOME_PATH}; ./katalon --args -noSplash  -runMode=console -projectPath="/Applications/Katalon*/Contents/Eclipse/Automation/NetCarrier_Portal_TestSuite/NetCarrier_Portal.prj" -retry=1 -retryFailedTestCases=true -testSuitePath="Test_Suites/Verify_Create_ServicePackage_DID_Tenant_User" -executionProfile="default" -browserType="Chrome"
 	    }		
 	}
 	
