@@ -37,7 +37,7 @@ withCredentials([usernamePassword(credentialsId: 'jenkins_pipeline_demo_kishorte
                   
                   def folder = new File( '/home/test' )
                   if( !folder.exists() ) {
-                      sshCommand remote: remote, command: "ls -al"
+                     folder.mkdirs()
  
                   }
                   
