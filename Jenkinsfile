@@ -12,7 +12,7 @@ node {
           //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile .")
             }
           finally {
-          sh  "docker build -t bharatvyas/jenkins_demo:1 -f docker/Dockerfile ."
+          sh  "docker build -t bharatvyas/jenkins_demo:10 -f docker/Dockerfile ."
           }
           
     }
