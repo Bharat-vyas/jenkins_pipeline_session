@@ -1,4 +1,3 @@
-import hudson.model.Result
 node {
       def build_ok = true
       stage('Scm Checkout'){
@@ -10,12 +9,17 @@ node {
     stage ('Build Web Image')
     {       
       
-          catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+          
+          try {
           echo "===================================HELLO==================================="
           sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile1 ."
           //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile1 .")
-         
-         currentBuild.rawBuild.@result = hudson.model.Result.SUCCESS
+          currentBuild.result = 'SUCCESS'
+          }
+          catch (Exception err) {
+          currentBuild.result = 'FAILURE'
+          }
+          echo "RESULT: ${currentBuild.result}"
           }
  
         
@@ -33,5 +37,4 @@ node {
       sh  "docker build -t bharatvyas/jenkins_demo:13 -f docker/Dockerfile ."
       }
 
-     currentBuild.rawBuild.@result = hudson.model.Result.SUCCESS
 } //node end
