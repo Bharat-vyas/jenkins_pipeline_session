@@ -16,11 +16,12 @@ node {
           //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile1 .")
           currentBuild.result = 'SUCCESS'
           }
-          catch (Exception err) {
+         
+          catch (Exception err) 
+          {
           currentBuild.result = 'FAILURE'
           }
-          echo "RESULT: ${currentBuild.result}"
-          }
+         
  
         
           sh  "docker build -t bharatvyas/jenkins_demo:12 -f docker/Dockerfile ."
