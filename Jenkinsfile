@@ -33,5 +33,5 @@ node {
       sh  "docker build -t bharatvyas/jenkins_demo:13 -f docker/Dockerfile ."
       }
 
-     
+     currentBuild.rawBuild.@result = hudson.model.Result.SUCCESS
 } //node end
