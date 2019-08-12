@@ -17,6 +17,11 @@ node {
           
     }
       
+      stage ('echo hello')
+            {
+                  sh "echo hello"
+            }
+      
 
 
 } //node end
