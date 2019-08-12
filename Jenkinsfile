@@ -13,7 +13,7 @@ node {
           ignoreFailures = true
         
           sh  "docker build -t bharatvyas/jenkins_demo:12 -f docker/Dockerfile ."
-          
+          if ($build_error) print("TESTS FAILED!");
           
     }
       
