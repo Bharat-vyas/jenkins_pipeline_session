@@ -8,7 +8,7 @@ node {
     {       
           catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           echo "===================================HELLO==================================="
-          sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile1 ."
+          sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile ."
           //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile .")
           }
         
