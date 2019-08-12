@@ -23,7 +23,7 @@ node {
       
       stage ('new image')
       {
-             sh  "docker build -t bharatvyas/jenkins_demo:13 -f docker/Dockerfile ."
+             sh  "docker build -t bharatvyas/jenkins_demo:13 -f docker/Dockerfile1 ."
       }
 
 } //node end
