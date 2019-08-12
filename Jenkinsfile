@@ -21,6 +21,7 @@ node {
           {
           currentBuild.result = 'FAILURE'
           }
+          echo "RESULT: ${currentBuild.result}"
          
  
         
