@@ -9,16 +9,12 @@ node {
     stage ('Build Web Image')
     {       
       
-          try {
+          catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
           echo "===================================HELLO==================================="
           sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile1 ."
-          //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile .")
+          //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile1 .")
           }
-          catch(e)
-          {
-          build_ok = false
-          echo e.toString()  
-          }
+ 
         
           sh  "docker build -t bharatvyas/jenkins_demo:12 -f docker/Dockerfile ."
           
@@ -34,10 +30,5 @@ node {
       sh  "docker build -t bharatvyas/jenkins_demo:13 -f docker/Dockerfile ."
       }
 
-      if(build_ok) {
-        currentBuild.result = "SUCCESS"
-    } else {
-        currentBuild.result = "FAILURE"
-    }
-      
+     
 } //node end
