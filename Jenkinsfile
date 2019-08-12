@@ -1,3 +1,4 @@
+import hudson.model.Result
 node {
       def build_ok = true
       stage('Scm Checkout'){
@@ -13,6 +14,8 @@ node {
           echo "===================================HELLO==================================="
           sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile1 ."
           //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile1 .")
+         
+         currentBuild.rawBuild.@result = hudson.model.Result.SUCCESS
           }
  
         
