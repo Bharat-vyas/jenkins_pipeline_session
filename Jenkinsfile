@@ -17,10 +17,10 @@ node {
          
           }
          
-          catch (Exception e) 
+          catch (Exception o) 
           {
-          //currentBuild.result = 'SUCCESS'
-          currentBuild.result = 'FAILURE'      //"also test with FAILURE"
+           currentBuild.result = 'SUCCESS'
+         // currentBuild.result = 'FAILURE'      //"also test with FAILURE"
           }
           echo "RESULT: ${currentBuild.result}"
          
