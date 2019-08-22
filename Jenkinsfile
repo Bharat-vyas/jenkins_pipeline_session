@@ -23,6 +23,7 @@ node {
           {
            currentBuild.result = 'SUCCESS'
          // currentBuild.result = 'FAILURE'      //"also test with FAILURE"
+                result = "FAIL"
           }
           echo "RESULT: ${currentBuild.result}"
          
