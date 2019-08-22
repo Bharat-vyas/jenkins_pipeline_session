@@ -19,7 +19,8 @@ node {
          
           catch (Exception e) 
           {
-          currentBuild.result = 'FAILURE'
+          currentBuild.result = 'SUCCESS'
+          //currentBuild.result = 'FAILURE'      "also test with FAILURE"
           }
           echo "RESULT: ${currentBuild.result}"
          
@@ -36,7 +37,7 @@ node {
       
       stage ('new stage')
       {
-    //  sh  "docker build -t bharatvyas/jenkins_demo:13 -f docker/Dockerfile1 ."
+      sh  "docker build -t bharatvyas/jenkins_demo:13 -f docker/Dockerfile1 ."
       }
 
 } //node end
