@@ -37,7 +37,7 @@ node {
       
       stage ('new stage')
       {
-      sh  "docker build -t bharatvyas/jenkins_demo:13 -f docker/Dockerfile1 ."
+      sh  "docker build -t bharatvyas/jenkins_demo:13 -f docker/Dockerfile ."
       }
 
 } //node end
