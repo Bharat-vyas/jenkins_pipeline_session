@@ -12,6 +12,8 @@ node {
           
           try {
           echo "===================================HELLO==================================="
+                // We have define Dockerfile1 at the end that's why it always fails and then we will handle the error using 
+                // catch statement which will alter the result from failure to success
           sh "docker build -t bharatvyas/jenkins_demo:${env.BUILD_ID} -f docker/Dockerfile1 ."
           //def image1 = docker.build bharatvyas/jenkins_demo:${env.BUILD_ID}", "--file docker/Dockerfile1 .")
          
@@ -20,7 +22,6 @@ node {
           catch (Exception o) 
           {
            currentBuild.result = 'SUCCESS'
-           currentStage.result = 'FAILURE'
          // currentBuild.result = 'FAILURE'      //"also test with FAILURE"
           }
           echo "RESULT: ${currentBuild.result}"
