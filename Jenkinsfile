@@ -17,7 +17,7 @@ node {
          
           }
          
-          catch (Exception err) 
+          catch (Exception e) 
           {
           currentBuild.result = 'SUCCESS'
           }
