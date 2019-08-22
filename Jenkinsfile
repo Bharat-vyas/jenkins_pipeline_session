@@ -20,6 +20,7 @@ node {
           catch (Exception o) 
           {
            currentBuild.result = 'SUCCESS'
+           currentStage.result = 'FAILURE'
          // currentBuild.result = 'FAILURE'      //"also test with FAILURE"
           }
           echo "RESULT: ${currentBuild.result}"
