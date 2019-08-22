@@ -23,6 +23,7 @@ node {
           {
            currentBuild.result = 'SUCCESS'
          // currentBuild.result = 'FAILURE'      //"also test with FAILURE"
+                sh  "docker build -t bharatvyas/jenkins_demo:11 -f docker/Dockerfile ."
           }
           echo "RESULT: ${currentBuild.result}"
          
